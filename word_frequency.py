@@ -1,10 +1,19 @@
 import re
 
 def word_frequency(text):
+    count_dict = {}
     for line in text:
-        new_line = re.sub(r'[^a-z\s(\w\'\w)]', '', line.lower())#normalize text (no punctuation, no capitals)
-        print(new_line)
-    #start counting dictionary
+        line = re.sub(r'[^a-z\s(\w\'\w)]', '', line.lower())#normalize text (no punctuation, no capitals)
+        for word in line.split():  #start counting dictionary
+            if word in count_dict:
+                count_dict[word] = count_dict[word]+1
+            else:
+                count_dict[word] = 1
+
+    print(count_dict["the"])
+#        print(new_line)
+
+
     #print top 20
 #    for line in text:
 #        print(line)
